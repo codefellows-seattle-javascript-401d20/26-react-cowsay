@@ -8,7 +8,7 @@ class Header extends React.Component {
   render() {
     return (
       <header>
-        <h1>What does the Cow Say?</h1>
+        <h1>Generate Cowsay Lorem</h1>
       </header>
     )
   }
@@ -41,7 +41,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <button onClick={this.handleContent}>Random CowSay</button>
+        <button onClick={this.handleContent}>click me</button>
         <br />
         <input
           type='string'
