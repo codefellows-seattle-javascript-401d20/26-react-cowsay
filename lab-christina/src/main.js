@@ -9,7 +9,7 @@ class Header extends React.Component {
   render() {
     return (
       <header>
-        <h1>Cowsay Lorem</h1>
+        <h1>Generate Cowsay Lorem</h1>
       </header>
     )
   }
@@ -19,23 +19,16 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      output: 'What Does The Cowsay?',
+      title: 'What Does The Cowsay?',
     }
 
     this.cowsayNext = this.cowsayNext.bind(this)
-    this.cowsayPrevious = this.cowsayPrevious.bind(this)
     this.handleCowsaySet = this.handleCowsaySet.bind(this)
   }
 
   cowsayNext(){
     this.setState((prevState) => {
-      return { output: cowsay.say({text:faker.lorem.words(10)})}
-    })
-  }
-
-  cowsayPrevious(){
-    this.setState((prevState) => {
-      return { output: cowsay.say({text:faker.lorem.words(10)})}
+      return { content: cowsay.say({text:faker.lorem.words(3)})}
     })
   }
 
@@ -48,18 +41,17 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <button onCLick={this.cowsayNext}> cowsay what </button>
-        <button onCLick={this.cowsayPrevious}> cowsaid what </button>
-        <input
-          type="text"
-          value={this.state}
+        <pre
+          content={this.state.cowsay}
           onChange={this.handleCowsaySet}
         />
-        <p> cowsay: {this.state.cowsay} </p>
-        <p> {this.state.output} </p>
+        <p> {this.state.title} </p>
+        <button onClick={this.cowsayNext}> Click Me </button>
+        <p> {this.state.cowsay} </p>
+        <p> {this.state.content} </p>
       </div>
     )
   }
 }
 
-ReactDom.render(<App />, document.getElemntById('root'))
+ReactDom.render(<App />, document.getElementById('root'))
