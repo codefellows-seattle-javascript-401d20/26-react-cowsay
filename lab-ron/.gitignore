@@ -67,6 +67,8 @@ tags
 ###### Personal
 .tern-project
 .vscode
+build
+.temp
 .env
 db
 
