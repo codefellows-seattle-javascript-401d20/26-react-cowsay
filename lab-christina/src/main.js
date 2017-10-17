@@ -23,32 +23,22 @@ class App extends React.Component {
     }
 
     this.cowsayNext = this.cowsayNext.bind(this)
-    this.handleCowsaySet = this.handleCowsaySet.bind(this)
   }
 
   cowsayNext(){
-    this.setState((prevState) => {
+    this.setState(() => {
       return { content: cowsay.say({text:faker.lorem.words(3)})}
     })
-  }
-
-  handleCowsaySet(e){
-    let {value} = e.target
-    this.setState({cowsay: value})
   }
 
   render(){
     return (
       <div>
         <Header />
-        <pre
-          content={this.state.cowsay}
-          onChange={this.handleCowsaySet}
-        />
         <p> {this.state.title} </p>
         <button onClick={this.cowsayNext}> Click Me </button>
         <p> {this.state.cowsay} </p>
-        <p> {this.state.content} </p>
+        <pre> {this.state.content} </pre>
       </div>
     )
   }
