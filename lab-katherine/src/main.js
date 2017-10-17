@@ -7,8 +7,13 @@ import faker from 'faker'
 
 class Header extends React.Component {
   render() {
-  return ('header', {},
-      React.createElement('h1', {}, 'Generate Cowsay Lorem'))
+    return (
+        <div>
+          <header>
+            <h1> Generate Cowsay Lorem </h1>
+          </header>
+        </div>
+      )
   }
 }
 
@@ -17,7 +22,7 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      output: 'I need something good to say!',
+      content: 'I need something good to say!',
     }
 
     this.handleClick = this.handleClick.bind(this)
@@ -26,18 +31,18 @@ class App extends React.Component {
   handleClick(){
     this.setState(
       prevState => {
-        return { output: cowsay.say({text: faker.lorem.words(10)})}
+        return { content: cowsay.say({text: faker.lorem.words(10)})}
       }
     )
   }
 
   render(){
-    let newOutput = this.state.output
+    let {content} = this.state
     return (
       <div>
         <Header />
         <button onClick={this.handleClick}> change cowsay </button>
-        <pre> {newOutput} </pre>
+        <pre> {content} </pre>
       </div>
     )
   }
