@@ -8,36 +8,40 @@ module.exports = {
   devtool: 'cheap-eval-source-map',
   output: {
     filename: 'bundle.[hash].js',
-    path: `${__dirname}/build`,
+    path: `${__dirname}/build`
   },
-
-  plugin: [new HTMLPlugin({
-    template: `${__dirname}/src/index.html`,
-  }),
-  new ExtractPlugin('bundle.[hash].css'),
+  
+  plugins: [
+    new HTMLPlugin({
+      template: `${__dirname}/src/index.html`,
+    }),
+    new ExtractPlugin('bundle.[hash].css'),
   ],
+
+  // loaders
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: 'babel-loader'
       },
       {
         test: /\.scss$/,
         loader: ExtractPlugin.extract({
           use: [
             'css-loader',
-            'resolve-loader', {
+            'resolve-url-loader',
+            {
               loader: 'sass-loader',
               options: {
                 sourceMap: true,
                 includePaths: [`${__dirname}/src/style`],
-              },
-            },
-          ],
-        }),
-      },
-    ],
-  },
+              }
+            }
+          ]
+        })
+      }
+    ]
+  }
 }
