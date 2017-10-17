@@ -41,7 +41,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <button onClick={this.handleClick}> change cowsay </button>
+        <button onClick={this.handleClick}> click me </button>
         <pre> {content} </pre>
       </div>
     )
