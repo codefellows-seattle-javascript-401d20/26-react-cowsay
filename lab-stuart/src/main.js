@@ -6,26 +6,46 @@ import cowsay from 'cowsay-browser';
 import faker from 'faker';
 
 let Header = () => {
-  return React.createElement('header', {},
-    React.createElement('h1', {}, 'Generate Cowsay Lorem'));
+  return (
+    <header>
+      <h1>Generate Cowsay Lorem</h1>
+    </header>
+  )
 }
 
 class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      content: ''
+      cow: 'default',
+      content: faker.lorem.words(4)
     }
 
+    this.cows = [];
+
+    cowsay.list((err, cows) => {
+      if(err)
+        throw new Error('Cowsay Broke');
+        this.cows = [...cows];
+    });
+
     this.handleButton = this.handleButton.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   handleButton(){
     this.setState(() => {
       return {
-        content: cowsay.say({
-      	   text: faker.lorem.words(4),
-         })
+        content: faker.lorem.words(4)
+       };
+    });
+  }
+
+  handleSelect(e){
+    let {value} = e.target;
+    this.setState(() => {
+      return {
+        cow: value
        };
     });
   }
@@ -34,8 +54,11 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <button onClick={this.handleButton}> click me </button>
-        <pre> {this.state.content} </pre>
+        <button onClick={this.handleButton}> click me </button><br />
+        <select onChange={this.handleSelect} value={this.state.cow}>
+          {this.cows.map((name, i) => { return <option key={i} value={name}> {name} </option> })}
+        </select>
+        <pre> { cowsay.say({ f: this.state.cow, text: this.state.content }) } </pre>
       </div>
     )
   }
