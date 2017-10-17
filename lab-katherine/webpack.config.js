@@ -1,11 +1,11 @@
-'use strict'
+'use strict';
 
-const HTMLPlugin = require('html-webpack-plugin')
-const ExtractPlugin = require('extract-text-webpack-plugin')
+const HTMLPlugin = require('html-webpack-plugin');
+const ExtractPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   output:  {
-    filename: 'bundle.f4daf4799628c1651e2d.js',
+    filename: 'bundle.[hash].js',
     path: `${__dirname}/build`,
   },
   entry: `${__dirname}/src/main.js`,
@@ -14,7 +14,7 @@ module.exports = {
     new HTMLPlugin({
       template: `${__dirname}/src/index.html`,
     }),
-    new ExtractPlugin('bundle.f4daf4799628c1651e2d.css'),
+    new ExtractPlugin('bundle.[hash].css'),
   ],
   module: {
     rules: [
@@ -41,4 +41,4 @@ module.exports = {
       },
     ],
   },
-}
+};
