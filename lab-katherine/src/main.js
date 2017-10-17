@@ -26,17 +26,18 @@ class App extends React.Component {
   handleClick(e){
     this.setState(
       prevState => {
-        return { output: Cowsay.say({text: Faker.lorem.words(10), f: 'cow'})}
+        return { output: Cowsay.say({text: Faker.lorem.words(10)})}
       }
     )
   }
 
   render(){
+    let newOutput = this.state.output;
     return (
       <div>
         <Header />
         <button onClick={this.handleClick}> change cowsay </button>
-        <pre> {this.state.output} </pre>
+        <pre> {newOutput} </pre>
       </div>
     )
   }
