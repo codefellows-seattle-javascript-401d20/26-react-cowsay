@@ -11,3 +11,14 @@ This is my first React Dom project, assigment 26 of code fellows 401 javascript
 Click the Random CowSay button to make the cow say random faker nonsense
 
 Type your own message in the input field and the cow will say your message
+
+```
+ ______________
+< Hello World! >
+ --------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
