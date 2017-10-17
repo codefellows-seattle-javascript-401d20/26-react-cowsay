@@ -23,7 +23,7 @@ class App extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick(e){
+  handleClick(){
     this.setState(
       prevState => {
         return { output: Cowsay.say({text: Faker.lorem.words(10)})}
