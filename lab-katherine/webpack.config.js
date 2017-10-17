@@ -5,7 +5,7 @@ const ExtractPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   output:  {
-    filename: 'bundle.[hash].js',
+    filename: 'bundle.f4daf4799628c1651e2d.js',
     path: `${__dirname}/build`,
   },
   entry: `${__dirname}/src/main.js`,
@@ -14,7 +14,7 @@ module.exports = {
     new HTMLPlugin({
       template: `${__dirname}/src/index.html`,
     }),
-    new ExtractPlugin('bundle.[hash].css'),
+    new ExtractPlugin('bundle.f4daf4799628c1651e2d.css'),
   ],
   module: {
     rules: [
