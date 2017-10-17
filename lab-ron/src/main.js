@@ -25,7 +25,7 @@ class App extends React.Component {
 
   handleContent() {
     this.setState(prevState => {
-      return { content: faker.lorem.words(5) }
+      return { content: faker.lorem.words(Math.ceil(Math.random() * 5)) }
     })
   }
 
@@ -48,7 +48,6 @@ class App extends React.Component {
           value={this.state.content}
           onChange={this.handleContentSet}
         />
-
         <pre>
           {cowsay.say({
             text: this.state.content,
