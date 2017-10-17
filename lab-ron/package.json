@@ -1,0 +1,15 @@
+{
+  "name": "cow-say-react",
+  "version": "0.0.1",
+  "description": "cow say project number next",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ron Barrantes",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KatherineHanson/charity-choice/graphs/contributors"
+  }
+}
