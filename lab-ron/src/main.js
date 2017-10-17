@@ -18,9 +18,7 @@ class App extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { content: '', }
-    this.handleInc = this.handleInc.bind(this);
-    this.handleDec = this.handleDec.bind(this);
+    this.state = { content: 'What do I say', }
     this.handleContent = this.handleContent.bind(this)
     this.handleContentSet = this.handleContentSet.bind(this)
   }
@@ -31,20 +29,11 @@ class App extends React.Component {
     })
   }
 
-  handleInc() {
-    this.setState(prevState => {
-      return { counter: prevState.counter + 1 }
-    })
-  }
-
-  handleDec() {
-    this.setState(prevState => {
-      return { counter: prevState.counter - 1 }
-    })
-  }
-
   handleContentSet(e) {
     let { value } = e.target
+    if (value === '') {
+      value = ' ';
+    }
     this.setState({ content: value })
   }
 
@@ -52,17 +41,19 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <button onClick={this.handleContent}>CowSay</button>
-
+        <button onClick={this.handleContent}>Random CowSay</button>
         <br />
         <input
-          type='number'
+          type='string'
           value={this.state.content}
           onChange={this.handleContentSet}
         />
-        <p>content: {this.state.content}</p>
 
-
+        <pre>
+          {cowsay.say({
+            text: this.state.content,
+          })}
+        </pre>
       </div>
     )
   }
