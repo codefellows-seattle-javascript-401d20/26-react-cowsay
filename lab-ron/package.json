@@ -9,10 +9,6 @@
   "author": "Ron Barrantes",
   "license": "MIT",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/KatherineHanson/charity-choice/graphs/contributors"
-  },
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
