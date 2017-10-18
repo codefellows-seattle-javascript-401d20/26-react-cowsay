@@ -30,9 +30,7 @@ class App extends React.Component {
 
   handleClick(){
     this.setState(
-      prevState => {
-        return { content: cowsay.say({text: faker.lorem.words(10)})}
-      }
+      { content: cowsay.say({text: faker.lorem.words(10)})}
     )
   }
 
