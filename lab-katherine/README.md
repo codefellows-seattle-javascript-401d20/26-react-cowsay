@@ -1,10 +1,14 @@
 401 JS --  Lab 26 Cowsay
 ===
 
+## Starting Your Webpack
+* start: `npm run watch`
+
 #### Project  
-Create the following component with the react, react-dom, cowsay, and faker dependencies.
-###### Web App
-* Hold the application's view and state
+A `Generate Cowsay Lorem` app. One can click the site's `Click Me` button to generate an ASCII art cow speaking in random lorem ipsum.
+###### Technical Overview
+* Made with the react, react-dom, cowsay, and faker dependencies.
+* Holds the application's view and state
 * Has a property on the state called content
 * Creates a view with the following display
   * A heading with the title "Generate Cowsay Lorem"
